@@ -1,0 +1,18 @@
+.navbar {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.navbar h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+    color: white;
+    text-align: center;
+}
+nav.navbar.navbar-expand-lg.navbar-dark.bg-primary {
+    display: grid;
+    grid-template-columns: repeat( 3, minmax(200px, 25vw) );
+    justify-content: space-between;
+}

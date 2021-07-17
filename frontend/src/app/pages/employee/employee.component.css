@@ -1,0 +1,16 @@
+/* .employee div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+} */
+
+label {
+    margin-right: 15px;
+}
+input[type=text],
+input[type=number] {
+    width: 300px;
+}
+
+button {
+    border-radius: 15px;
+}

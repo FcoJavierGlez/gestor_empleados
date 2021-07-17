@@ -1,0 +1,22 @@
+<div class="container">
+    <app-name-page [pageName]="pageName"></app-name-page>
+    <form class="employee" *ngIf="getEmployee()">
+        <div>
+            <label for="name">Nombre:</label>
+            <input type="text" [(ngModel)]="newEmployee.name" name="name" id="name" > <!-- [value]="getName()" -->
+        </div>
+        <div>
+            <label for="position">Puesto:</label>
+            <input type="text" [(ngModel)]="newEmployee.position" name="position" id="position" [value]="getPosition()">
+        </div>
+        <div>
+            <label for="office">Oficina:</label>
+            <input type="text" [(ngModel)]="newEmployee.office" name="office" id="office" [value]="getOffice()">
+        </div>
+        <div>
+            <label for="salary">Salario:</label>
+            <input type="number" [(ngModel)]="newEmployee.salary" name="salary" id="salary" [value]="getSalary()">€
+        </div>
+        <button class="btn btn-success" (click)="probando($event)">Guardar</button>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+<div class="card">
+    <div>
+        <p>
+            <span class="title">Nombre:</span> {{ employee.name }}
+        </p>
+        <p>
+            <span class="title">Puesto:</span> {{ employee.position }}
+        </p>
+        <p>
+            <span class="title">Oficina:</span> {{ employee.office }}
+        </p>
+        <p>
+            <span class="title">Salario:</span> {{ employee.salary | currency: 'EUR' }}
+        </p>
+    </div>
+    <div class="options">
+        <button class="btn btn-info" (click)="editEmployee()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button class="btn btn-danger">
+            <mat-icon>delete_forever</mat-icon>
+        </button>
+    </div>
+</div>

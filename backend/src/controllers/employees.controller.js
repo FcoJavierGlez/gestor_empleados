@@ -13,7 +13,7 @@ const employerController = {
         try {
             const search = await Employees.findById( req.params.id );
             if (!search) return res.status(404).json( { message: 'Employer not found' } );
-            res.status(200).json( [ search ] );
+            res.status(200).json( search );
         } catch (error) {
             res.status(500).json( { message: 'It seems that something went wrong' } );
         }
