@@ -29,7 +29,7 @@ const employerController = {
     },
     updateEmployer: async function (req,res) {
         try {
-            const employer = await Employees.findByIdAndUpdate( req.params.id, req.body );
+            const employer = await Employees.findByIdAndUpdate( req.params.id, req.body, { new: true } );
             res.status(200).json( employer );
         } catch (error) {
             res.status(500).json(  { message: 'It seems that something went wrong' }  );

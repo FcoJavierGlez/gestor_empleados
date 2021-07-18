@@ -61,8 +61,12 @@ export class EmployeeComponent implements OnInit {
     }
     const updated = JSON.parse( JSON.stringify(obj) );
     if ( !Object.entries( updated ).length ) return;
-    this.employeesSvc.updateEmployee( this.idEmployee, updated );
-    this.router.navigate( [`/`] );
+    this.employeesSvc.updateEmployee( this.idEmployee, updated ).subscribe(
+      (res: Employee) => {
+        this.employee = res;
+        this.router.navigate( ['/'] );
+      }
+    );
   }
 
 }

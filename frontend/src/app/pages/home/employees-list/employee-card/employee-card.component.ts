@@ -13,8 +13,7 @@ export class EmployeeCardComponent implements OnInit {
   
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   editEmployee(): void {
     this.router.navigate([`/employee/${this.employee._id}`]);

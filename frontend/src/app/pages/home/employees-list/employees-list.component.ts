@@ -19,7 +19,8 @@ export class EmployeesListComponent implements OnInit {
 
   requestEmployees(): void {
     this.employeesSvc.getEmployees().subscribe(
-      res => this.employeesList = res
+      (res: Employee[]) => this.employeesList = res,
+      err => console.log('Status code error:', err.status)
     );
   }
 
