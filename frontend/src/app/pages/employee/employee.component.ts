@@ -21,10 +21,10 @@ export class EmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.requestEmployee();
+    this.requestGetEmployee();
   }
 
-  requestEmployee(): void {
+  requestGetEmployee(): void {
     this.employeesSvc.getEmployee( this.idEmployee ).subscribe(
       res => {
         this.employee = res;

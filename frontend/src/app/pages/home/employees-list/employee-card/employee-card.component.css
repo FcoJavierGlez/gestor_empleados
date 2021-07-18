@@ -4,6 +4,7 @@
     background-color: ghostwhite;
     border-radius: 15px;
     display: flex;
+    font-size: 16px;
     flex-direction: row;
     justify-content: space-between;
     margin: 10px auto;
