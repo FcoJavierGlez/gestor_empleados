@@ -43,6 +43,12 @@ export class EmployeesService {
       );
   }
   updateEmployee(id: string, body: any): Observable<Employee> {
-    return this.http.put<Employee>( `${this.URL_API}/${id}`, body );
+    return this.http.put<Employee>( `${this.URL_API}/${id}`, body )
+      .pipe(
+        catchError( err => throwError(err) )
+      );
+  }
+  deleteEmployee(id: string): Observable<Employee> {
+    return this.http.delete<Employee>( `${this.URL_API}/${id}` );
   }
 }

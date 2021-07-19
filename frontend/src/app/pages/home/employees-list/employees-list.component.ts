@@ -17,6 +17,10 @@ export class EmployeesListComponent implements OnInit {
     this.requestEmployees();
   }
 
+  updateList(event: Event): void {
+    this.requestEmployees();
+  }
+
   requestEmployees(): void {
     this.employeesSvc.getEmployees().subscribe(
       (res: Employee[]) => this.employeesList = res,

@@ -1,3 +1,3 @@
 <div class="employees-list">
-    <app-employee-card *ngFor="let employee of employeesList" [employee]="employee"></app-employee-card>
+    <app-employee-card *ngFor="let employee of employeesList" [employee]="employee" (refreshList)="updateList($event)"></app-employee-card>
 </div>
