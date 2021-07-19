@@ -24,7 +24,7 @@ export class EmployeeCardComponent implements OnInit {
   ngOnInit(): void { }
 
   editEmployee(): void {
-    this.router.navigate([`/employee/${this.employee._id}`]);
+    this.router.navigateByUrl( `/employee?u=${this.employee._id}` );
   }
 
   deleteEmployee(): void {

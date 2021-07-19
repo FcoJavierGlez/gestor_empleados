@@ -16,9 +16,10 @@ span.title {
 }
 
 .options button {
-    border-radius: 20px;
-    height: 60px;
+    border-radius: 50px;
+    height: 72px;
     margin: 0 5px;
+    width: 72px;
 }
 .mat-icon {
     display: block;

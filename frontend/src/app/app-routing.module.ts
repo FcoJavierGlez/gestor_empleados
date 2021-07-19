@@ -6,7 +6,7 @@ import { EmployeeComponent } from './pages/employee/employee.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'employee/:id', component: EmployeeComponent },
+  { path: 'employee', component: EmployeeComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 

@@ -17,3 +17,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-primary {
     grid-template-columns: repeat( 3, minmax(200px, 25vw) );
     justify-content: space-between;
 }
+
+.links {
+    align-items: center;
+    display: flex;
+}

@@ -1,22 +1,75 @@
 <div class="container">
     <app-name-page [pageName]="pageName"></app-name-page>
-    <form class="employee" *ngIf="getEmployee()">
-        <div>
-            <label for="name">Nombre:</label>
-            <input type="text" [(ngModel)]="newEmployee.name" name="name" id="name" > <!-- [value]="getName()" -->
-        </div>
-        <div>
-            <label for="position">Puesto:</label>
-            <input type="text" [(ngModel)]="newEmployee.position" name="position" id="position" [value]="getPosition()">
-        </div>
-        <div>
-            <label for="office">Oficina:</label>
-            <input type="text" [(ngModel)]="newEmployee.office" name="office" id="office" [value]="getOffice()">
-        </div>
-        <div>
-            <label for="salary">Salario:</label>
-            <input type="number" [(ngModel)]="newEmployee.salary" name="salary" id="salary" [value]="getSalary()">€
-        </div>
-        <button class="btn btn-success" (click)="probando($event)">Guardar</button>
-    </form>
+    <div *ngIf="getEmployee(); else new">
+        <h4>Editar empleado</h4>
+        <form>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" [(ngModel)]="newEmployee.name" name="name" id="name" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="form row">
+                <div class="form-group col-md-6">
+                    <label for="position" class="col-sm-2 col-form-label">Puesto</label>
+                    <div>
+                        <input type="text" class="form-control" [(ngModel)]="newEmployee.position" name="position" id="position" placeholder="Puesto">
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="office" class="col-sm-2 col-form-label">Oficina</label>
+                    <div>
+                        <input type="text" class="form-control" [(ngModel)]="newEmployee.office" name="office" id="office" placeholder="Oficina">
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="salary" class="col-sm-2 col-form-label">Salario</label>
+                    <div>
+                        <input type="text" class="form-control" [(ngModel)]="newEmployee.salary" name="salary" id="salary" placeholder="Salario">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex end">
+                <button class="btn btn-danger" (click)="cancel($event)">Cancelar</button>
+                <button class="btn btn-success" (click)="updateEmployee($event)">Guardar</button>
+            </div>
+        </form>
+    </div>
+    <ng-template #new>
+        <h4>Añadir empleado</h4>
+        <form>
+            <fieldset>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" [(ngModel)]="newEmployee.name" name="name" id="name" placeholder="Nombre">
+                    </div>
+                </div>
+                <div class="form row">
+                    <div class="form-group col-md-6">
+                        <label for="position" class="col-sm-2 col-form-label">Puesto</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="newEmployee.position" name="position" id="position" placeholder="Puesto">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="office" class="col-sm-2 col-form-label">Oficina</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="newEmployee.office" name="office" id="office" placeholder="Oficina">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="salary" class="col-sm-2 col-form-label">Salario</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="newEmployee.salary" name="salary" id="salary" placeholder="Salario">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex end">
+                    <button class="btn btn-danger" (click)="cancel($event)">Cancelar</button>
+                    <button class="btn btn-success" (click)="save($event)">Guardar</button>
+                </div>
+            </fieldset>
+        </form>
+    </ng-template>
 </div>

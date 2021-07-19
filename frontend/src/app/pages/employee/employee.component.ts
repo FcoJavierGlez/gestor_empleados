@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/interfaces/employee';
 import { EmployeesService } from 'src/app/services/employees.service';
 
@@ -15,13 +15,25 @@ export class EmployeeComponent implements OnInit {
   private employee!: Employee;
   newEmployee!: Employee;
 
-  constructor( private employeesSvc: EmployeesService, private router: Router ) { 
+  constructor( 
+    private employeesSvc: EmployeesService, 
+    private router: Router,
+    private params: ActivatedRoute 
+  ) { 
     this.pageName = location.pathname.match(/^\/(\w+)/)?.[1] || 'home';
-    this.idEmployee = location.pathname.match(/\/employee\/(\w+)/)?.[1] || '';
+    this.newEmployee = {
+      name: '',
+      office: '',
+      position: '',
+      salary: 0
+    };
   }
 
   ngOnInit(): void {
-    this.requestGetEmployee();
+    this.params.queryParams.subscribe(
+      params => this.idEmployee = params['u']
+    );
+    if (this.idEmployee) this.requestGetEmployee();
   }
 
   requestGetEmployee(): void {
@@ -37,7 +49,7 @@ export class EmployeeComponent implements OnInit {
     return this.employee;
   }
 
-  getName(): string {
+  /* getName(): string {
     return this.employee.name;
   }
   getPosition(): string {
@@ -48,9 +60,25 @@ export class EmployeeComponent implements OnInit {
   }
   getSalary(): number {
     return this.employee.salary;
+  } */
+
+  cancel(event: Event): void {
+    event.preventDefault();
+    this.router.navigate( ['/'] );
   }
 
-  probando(event: Event): void {
+  save(event: Event): void {
+    event.preventDefault();
+    //validar el formulario
+    this.employeesSvc.createEmployee( this.newEmployee ).subscribe(
+      (res: Employee) => {
+        if (res) this.router.navigateByUrl('/');
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateEmployee(event: Event): void {
     event.preventDefault();
     //validar formulario
     const obj = {
